@@ -1,0 +1,34 @@
+list = int(input("Enter the first 15 digits of your credit card number without spaces and dashes: "))
+checkDigit = int(input("Enter the last digit of the credit card number: "))
+numbers = []
+for elements in str(list):
+    numbers.append(int(elements))
+
+def main():
+    n = None
+    total_odd = 0
+    total_even = 0
+    count = 0
+    for element in numbers[::2]:
+        total_odd += element
+        if element > 4:
+            count += 1
+    for element in numbers[1::2]:
+        total_even += element
+    total = total_even + (total_odd * 2) + count
+    if total % 10 != 0:
+        for i in range(1,10):
+            if (total + i) % 10 == 0:
+                n = i
+    else:
+        n = 0
+    validation👎
+
+def validation(n):
+    if n == checkDigit:
+        print("Your credit card is valid!")
+    else:
+        print("Your credit card in not valid!")
+
+main()
+
